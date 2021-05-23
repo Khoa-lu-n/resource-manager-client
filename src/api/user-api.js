@@ -1,4 +1,8 @@
-import { sendGetRequest, sendPostRequest, sendPutRequest } from "./api-sender";
+import {
+  sendGetRequest,
+  sendPostRequest,
+  sendPutRequestWithToken
+} from "./api-sender";
 
 export function login(payload) {
   let route = "/login";
@@ -7,7 +11,7 @@ export function login(payload) {
 
 export function updateSettingsNotification(payload) {
   let route = "/settings";
-  return sendPutRequest(route, payload);
+  return sendPutRequestWithToken(route, payload);
 }
 
 export function getSettingsNotification() {

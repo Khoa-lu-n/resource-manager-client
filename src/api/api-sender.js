@@ -23,6 +23,16 @@ export function sendGetRequest(
   return axios.get(url, { headers, data: payload }).then(handleResult);
 }
 
+export function sendPostRequestWithToken(
+  route,
+  payload,
+  token = localStorage.getItem("token")
+) {
+  const url = `${URL_BASE}${route}`;
+  const headers = token ? { token } : undefined;
+  return axios.post(url, payload, { headers }).then(handleResult);
+}
+
 export function sendPostRequest(route, payload) {
   const url = `${URL_BASE}${route}`;
   return axios.post(url, payload).then(handleResult);
@@ -31,4 +41,14 @@ export function sendPostRequest(route, payload) {
 export function sendPutRequest(route, payload) {
   const url = `${URL_BASE}${route}`;
   return axios.put(url, payload).then(handleResult);
+}
+
+export function sendPutRequestWithToken(
+  route,
+  payload,
+  token = localStorage.getItem("token")
+) {
+  const url = `${URL_BASE}${route}`;
+  const headers = token ? { token } : undefined;
+  return axios.put(url, payload, { headers }).then(handleResult);
 }
