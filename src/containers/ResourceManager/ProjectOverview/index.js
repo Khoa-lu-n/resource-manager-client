@@ -18,7 +18,7 @@ const ProjectOverview = props => {
   );
   const instanceConfig = getConfig(
     parseInt((project.usage_instance / project.total_instance) * 100),
-    "Disk"
+    "Instance"
   );
 
   function getConfig(serie, label) {
@@ -46,6 +46,17 @@ const ProjectOverview = props => {
       <br></br>
       <div className="content">
         <div>
+            <ReactApexChart
+              options={instanceConfig.options}
+              series={instanceConfig.series}
+              type="radialBar"
+              height={200}
+            />
+            <p>
+              Used {project.usage_instance} of {project.total_instance}
+            </p>
+          </div>
+        <div>
           <ReactApexChart
             options={cpuConfig.options}
             series={cpuConfig.series}
@@ -64,7 +75,7 @@ const ProjectOverview = props => {
             height={200}
           />
           <p>
-            Used {project.usage_memory} of {project.total_memory}
+            Used {project.usage_memory} of {project.total_memory} MB
           </p>
         </div>
         <div>
@@ -75,20 +86,10 @@ const ProjectOverview = props => {
             height={200}
           />
           <p>
-            Used {project.usage_disk} of {project.total_disk}
+            Used {project.usage_disk} of {project.total_disk} GB
           </p>
         </div>
-        <div>
-          <ReactApexChart
-            options={instanceConfig.options}
-            series={instanceConfig.series}
-            type="radialBar"
-            height={200}
-          />
-          <p>
-            Used {project.usage_instance} of {project.total_instance}
-          </p>
-        </div>
+        
       </div>
     </Wrapper>
   );

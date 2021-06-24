@@ -7,7 +7,11 @@ export default styled.div`
       text-align: center;
     }
   }
-  .button-check {
-    text-align: center;
+  .button-check, h4 {
+    // text-align: center;
+    display: ${props => props.isDisplay ? "" : "none"}}
+  }
+  .resource-statistic {
+    display: ${props => !props.isDisplay ? "" : "none"}}
   }
 `;

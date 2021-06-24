@@ -63,7 +63,7 @@ const ResourceIn4 = props => {
               height={200}
             />
             <p>
-              Used {props.resource.used_memory} of {props.resource.total_memory}
+              Used {props.resource.used_memory} of {props.resource.total_memory} MB  
             </p>
           </div>
           <div>
@@ -74,7 +74,7 @@ const ResourceIn4 = props => {
               height={200}
             />
             <p>
-              Used {props.resource.used_disk} of {props.resource.total_disk}
+              Used {props.resource.used_disk} of {props.resource.total_disk} GB
             </p>
           </div>
         </div>

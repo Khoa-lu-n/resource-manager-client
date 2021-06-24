@@ -28,12 +28,15 @@ export function sendPostRequestWithToken(
   payload,
   token = localStorage.getItem("token")
 ) {
+  console.log("ok")
   const url = `${URL_BASE}${route}`;
   const headers = token ? { token } : undefined;
+  console.log({headers})
   return axios.post(url, payload, { headers }).then(handleResult);
 }
 
 export function sendPostRequest(route, payload) {
+  console.log("okooo")
   const url = `${URL_BASE}${route}`;
   return axios.post(url, payload).then(handleResult);
 }

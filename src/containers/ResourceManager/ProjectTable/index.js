@@ -3,6 +3,11 @@ import { Table, Button } from "react-bootstrap";
 import Wrapper from "./index.styles";
 
 const ProjectTable = props => {
+
+  function showText(text){
+    return <strong style={{"color": "red"}}>{text}</strong>
+  }
+
   return (
     <Wrapper>
       <div>
@@ -30,16 +35,20 @@ const ProjectTable = props => {
                 <td>{e.id_project}</td>
                 <td>{e.name}</td>
                 <td>
-                  Used {e.usage_instance} of {e.total_instance}
+                  Used {showText(e.usage_instance, "red")} of {showText(e.total_instance)}
+                  {/* {e.usage_instance} / {e.total_instance} */}
                 </td>
                 <td>
-                  Used {e.usage_cpu} of {e.total_cpu}
+                  Used {showText(e.usage_cpu)} of {showText(e.total_cpu)}
+                  {/* {e.usage_cpu} / {e.total_cpu} */}
                 </td>
                 <td>
-                  Used {e.usage_memory} of {e.total_memory}
+                  Used {showText(e.usage_memory)} of {showText(e.total_memory)} MB
+                  {/* {e.usage_memory} / {e.total_memory} MB */}
                 </td>
                 <td>
-                  Used {e.usage_disk} of {e.total_disk}
+                  Used {showText(e.usage_disk)} of {showText(e.total_disk)} GB
+                  {/* {e.usage_disk} / {e.total_disk} GB */}
                 </td>
                 <td>
                   <Button

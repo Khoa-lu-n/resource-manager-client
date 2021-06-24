@@ -28,8 +28,8 @@ const ProjectTable = props => {
                 <td>{e.status}</td>
                 <td>{e.ip}</td>
                 <td>{e.total_cpu}</td>
-                <td>{e.total_memory}</td>
-                <td>{e.total_disk}</td>
+                <td>{e.total_memory} MB</td>
+                <td>{e.total_disk} GB</td>
               </tr>
             );
           })}
